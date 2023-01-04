@@ -8,6 +8,7 @@
 
 import React, {useState} from 'react';
 import {
+  Platform,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -26,7 +27,7 @@ import getThetaLivePreview from './src/utils/theta'
 import axios from 'axios';
 import {fetch as fetchPolyfill} from 'whatwg-fetch'
 import HandleApiModule from './src/native_module/HandleImageModule';
-import { RCTLivePreviewView } from './src/native_module/LivePreviewComponent';
+import { RCTLivePreviewView, RCTLivePreviewIOS } from './src/native_module/LivePreviewComponent';
 
 const App = () => {
 
@@ -472,7 +473,9 @@ const App = () => {
           contentInset={{top: 0, right: 0, left: 0, bottom: 0}}
           scrollEnabled={false}
           source={{html: formatHtml(), baseUrl: '/'}} /> */}
-          {/* <RCTLivePreviewView  style={{ flex: 1 }} someRandomProp={"levanphi"} /> */}
+         {Platform.OS == 'android' ? 
+          <RCTLivePreviewView  style={{ flex: 1 }} someRandomProp={"levanphi"} />
+        : <RCTLivePreviewIOS style={{flex:1}}/>}
       </View>
       <View style={{justifyContent: 'space-between'}}>
         <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>

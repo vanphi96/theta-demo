@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* nativeuiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* nativeuiTests.m */; };
+		04B687C0296412A00004E4A0 /* RNTLivePreviewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B687BF296412A00004E4A0 /* RNTLivePreviewManager.m */; };
+		04B68818296579470004E4A0 /* HttpStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B68817296579470004E4A0 /* HttpStream.m */; };
+		04B6881B2965799A0004E4A0 /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B6881A2965799A0004E4A0 /* HttpConnection.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-nativeui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-nativeui.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -30,6 +33,11 @@
 		00E356EE1AD99517003FC87E /* nativeuiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nativeuiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* nativeuiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nativeuiTests.m; sourceTree = "<group>"; };
+		04B687BF296412A00004E4A0 /* RNTLivePreviewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNTLivePreviewManager.m; path = nativeui/RNTLivePreviewManager.m; sourceTree = "<group>"; };
+		04B68816296579230004E4A0 /* HttpStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpStream.h; sourceTree = "<group>"; };
+		04B68817296579470004E4A0 /* HttpStream.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpStream.m; sourceTree = "<group>"; };
+		04B68819296579790004E4A0 /* HttpConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpConnection.h; sourceTree = "<group>"; };
+		04B6881A2965799A0004E4A0 /* HttpConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpConnection.m; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* nativeui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nativeui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = nativeui/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = nativeui/AppDelegate.mm; sourceTree = "<group>"; };
@@ -83,15 +91,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		04B68815296578F70004E4A0 /* http */ = {
+			isa = PBXGroup;
+			children = (
+				04B68816296579230004E4A0 /* HttpStream.h */,
+				04B68817296579470004E4A0 /* HttpStream.m */,
+				04B68819296579790004E4A0 /* HttpConnection.h */,
+				04B6881A2965799A0004E4A0 /* HttpConnection.m */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* nativeui */ = {
 			isa = PBXGroup;
 			children = (
+				04B68815296578F70004E4A0 /* http */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				04B687BF296412A00004E4A0 /* RNTLivePreviewManager.m */,
 			);
 			name = nativeui;
 			sourceTree = "<group>";
@@ -413,7 +434,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				04B687C0296412A00004E4A0 /* RNTLivePreviewManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				04B6881B2965799A0004E4A0 /* HttpConnection.m in Sources */,
+				04B68818296579470004E4A0 /* HttpStream.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,18 +510,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 522X8SN8FW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = nativeui/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "theta-demo";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jp.rebc.jp.app;
 				PRODUCT_NAME = nativeui;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -512,17 +539,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 522X8SN8FW;
 				INFOPLIST_FILE = nativeui/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "theta-demo";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jp.rebc.jp.app;
 				PRODUCT_NAME = nativeui;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
